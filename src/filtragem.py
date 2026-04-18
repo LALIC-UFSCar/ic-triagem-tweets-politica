@@ -91,7 +91,6 @@ def inicializar_ambiente():
     sys.path.append(f'{CAMINHO_BASE_PADRAO}/resources/PortiLexicon-UD')
     from UDlexPT import UDlexPT
     ud_lex = UDlexPT()
-    sys.path.append(f'{CAMINHO_BASE_PADRAO}/resources')
     return nlp, corretor, stopwords_pt, ud_lex
 
 
