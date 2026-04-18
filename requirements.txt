@@ -1,0 +1,14 @@
+# Processamento de Linguagem Natural
+spacy>=3.5.0
+enelvo
+pyspellchecker
+emoji
+nltk
+
+# Manipulação de dados e arquivos
+pandas
+pyarrow
+openpyxl
+
+# Ambiente de experimentação
+jupyter

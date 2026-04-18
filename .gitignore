@@ -1,0 +1,21 @@
+# IDEs
+.idea/
+
+# Caches do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Arquivos pesados de ML e Executáveis
+*.bin
+*.exe
+*.dcu
+*.res
+
+# Pastas de build da IDE
+out/
+
+# Ignorar bases de dados originais (opcional)
+data/Amostras/*.xlsx
+
+resources/PortiLexicon-UD/AUX.tsv
