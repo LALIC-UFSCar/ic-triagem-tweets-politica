@@ -24,3 +24,7 @@ resources/PortiLexicon-UD/AUX.tsv
 resources/palavras.txt
 resources/psych_verbs.txt
 resources/pt.txt
+
+# Arquivos de configuração do Enelvo (desativado no momento)
+resources/force-list.txt
+resources/ignore-list.txt

@@ -63,16 +63,16 @@ O fluxo de processamento de texto utiliza uma combinação de ferramentas aberta
    ```
    *Os resultados da triagem serão salvos em `data/resultados_tweets.csv`.*
 
-## 🤝 Créditos e fontes de dados
+## 🤝 Créditos e Fontes de Dados
 
 Grande parte dos recursos léxicos e bases de dados utilizados na pasta `resources/` provém de contribuições valiosas da comunidade open-source. Deixo aqui os devidos agradecimentos e créditos aos autores originais:
 
 * **Municípios e estados brasileiros (`estados.csv`, `municipios.csv`):** [kelvins/municipios-brasileiros](https://github.com/kelvins/municipios-brasileiros)
 * **Nomes próprios do Censo IBGE (`ibge-fem-10000.csv`, `ibge-mas-10000.csv`):** [MedidaSP/nomes-brasileiros-ibge](https://github.com/MedidaSP/nomes-brasileiros-ibge)
 * **Lista de países (`paises-array.json`):** [juliolvfilho/lista-paises](https://github.com/juliolvfilho/lista-paises)
-* **Léxico de palavrões/termos ofensivos (`pt.txt`):** [LDNOOBW](https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words)
+* **Léxicos de palavrões e termos ofensivos (`pt.txt`, `palavras.txt`):** [LDNOOBW](https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words) e [chat-detox](https://github.com/dunossauro/chat-detox)
 * **Léxico geral e morfológico:** [PortiLexicon-UD](https://github.com/LuceleneL/PortiLexicon-UD)
-* **Outros recursos:** O repositório também inclui compilações manuais de sobrenomes políticos, dicionários de verbos psicológicos baseados no LIWC e listas de exceções ortográficas.
+* **Outros recursos:** O repositório também inclui compilações manuais de sobrenomes políticos e dicionários de verbos psicológicos baseados no LIWC.
 
 ## 👩‍💻 Autoria e instituição
 
