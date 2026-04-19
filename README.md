@@ -1,4 +1,4 @@
-# Triagem Inteligente de Tweets para Processamento de Linguagem Natural (PLN)
+# Triagem inteligente de tweets para o Processamento de Linguagem Natural (PLN)
 
 Este repositório contém o código-fonte e os recursos desenvolvidos durante o projeto de Iniciação Científica focado na criação de um modelo computacional para a triagem qualitativa de tweets, com ênfase no domínio da política brasileira. 
 
@@ -23,22 +23,32 @@ A arquitetura do projeto foi desenhada para separar claramente códigos de exper
 ## 🛠️ Tecnologias e dependências principais
 
 O fluxo de processamento de texto utiliza uma combinação de ferramentas abertas e algoritmos desenvolvidos internamente:
-* **Python 3.x**
+* **Python 3.12 ou 3.13** *(Atenção: Evite versões mais recentes (3.14+) para garantir a compatibilidade com os pacotes pré-compilados do `gensim` e do `spaCy` e evitar erros de compilação C++).*
 * **spaCy:** Reconhecimento de Entidades Nomeadas (NER) e marcação POS.
 * **Enelvo & pyspellchecker:** Normalização lexical e correção ortográfica adaptada para o "internetês".
 * **PortiLexicon-UD:** Validação de termos técnicos a partir de exclusão de léxico geral.
-* **NILC-Metrix:** Extração de métricas de complexidade textual (requer instanciamento via Docker para uso local).
+  * **Nota:** O arquivo original `UDlexPT.py` fornecido pelo PortiLexicon sofreu pequenas adaptações neste repositório para garantir compatibilidade e estabilidade em ambientes Windows:
+    1. Foi adicionado o parâmetro explícito `encoding='utf-8'` na função `open()` para evitar erros de leitura de caracteres especiais.
+    2. Implementou-se a normalização `unicodedata.normalize('NFC', key)` nas chaves do dicionário para garantir o matching exato com as strings extraídas dos tweets.
+    3. O método de separação de quebra de linhas foi substituído por `.rstrip('\n')` e `.split(",", 1)` para lidar com os padrões CRLF e evitar perdas de caracteres na leitura do `.tsv`.
+* **NILC-Metrix:** Extração de métricas de complexidade textual (requer instanciamento via Docker para uso local). *Caso o contêiner não esteja rodando na porta 8080, o algoritmo ignora as métricas graciosamente sem interromper a execução.*
 
-## 🚀 Como Executar
+## 🚀 Como executar
 
 1. Clone este repositório:
    ```bash
-   git clone [https://github.com/LALIC-UFSCar/nome-do-seu-repositorio.git](https://github.com/LALIC-UFSCar/nome-do-seu-repositorio.git)
+   git clone https://github.com/LALIC-UFSCar/ic-triagem-tweets-politica.git
+   cd ic-triagem-tweets-politica
    ```
 2. Crie e ative um ambiente virtual:
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # No Windows: venv\Scripts\activate
+   python -m venv .venv
+   
+   # No Linux/macOS:
+   source .venv/bin/activate  
+   
+   # No Windows: 
+   .venv\Scripts\activate
    ```
 3. Instale as dependências:
    ```bash
@@ -48,8 +58,13 @@ O fluxo de processamento de texto utiliza uma combinação de ferramentas aberta
    ```bash
    python -m spacy download pt_core_news_lg
    ```
+5. Execute o script principal de filtragem:
+   ```bash
+   python src/filtragem.py
+   ```
+   *Os resultados da triagem serão salvos em `data/resultados_tweets.csv`.*
 
-## 👩‍💻 Autoria e Instituição
+## 👩‍💻 Autoria e instituição
 
 * **Pesquisadora:** Laura Pessine Teixeira
 * **Orientadora:** Profa. Dra. Helena de Medeiros Caseli
