@@ -15,7 +15,6 @@ Avaliar e pontuar textos curtos (tweets) baseando-se em aspectos extraídos da d
 A arquitetura do projeto foi desenhada para separar claramente códigos de experimentação, dados e recursos linguísticos:
 
 * `src/`: Scripts Python contendo a lógica de filtragem, extração de amostras e a implementação das heurísticas das pistas linguísticas.
-* `notebooks/`: Jupyter Notebooks utilizados para experimentação, validação e prototipação das análises.
 * `data/`: Amostras de dados e arquivos `.csv` resultantes do ranqueamento. *(Nota: Por questões de privacidade e volume, as bases originais completas do Twitter/X não são versionadas).*
 * `resources/`: Léxicos, dicionários e ferramentas auxiliares adaptadas para o projeto (incluindo `PortiLexicon-UD` e dicionários de correção para o `enelvo`).
 * `docs/`: Documentação complementar, infográficos e representações visuais dos critérios adotados.
