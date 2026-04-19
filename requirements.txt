@@ -1,6 +1,5 @@
 # Processamento de Linguagem Natural
 spacy>=3.5.0
-enelvo
 pyspellchecker
 emoji
 nltk

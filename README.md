@@ -16,7 +16,7 @@ A arquitetura do projeto foi desenhada para separar claramente códigos de exper
 
 * `src/`: Scripts Python contendo a lógica de filtragem, extração de amostras e a implementação das heurísticas das pistas linguísticas.
 * `data/`: Amostras de dados e arquivos `.csv` resultantes do ranqueamento. *(Nota: Por questões de privacidade e volume, as bases originais completas do Twitter/X não são versionadas).*
-* `resources/`: Léxicos, dicionários e ferramentas auxiliares adaptadas para o projeto (incluindo `PortiLexicon-UD` e dicionários de correção para o `enelvo`).
+* `resources/`: Léxicos, dicionários e ferramentas auxiliares adaptadas para o projeto (incluindo `PortiLexicon-UD`, bases do IBGE, listas de exceção ortográfica e léxicos de toxicidade para trabalhos futuros).
 * `docs/`: Documentação complementar, infográficos e representações visuais dos critérios adotados.
 
 ## 🛠️ Tecnologias e dependências principais
@@ -24,7 +24,7 @@ A arquitetura do projeto foi desenhada para separar claramente códigos de exper
 O fluxo de processamento de texto utiliza uma combinação de ferramentas abertas e algoritmos desenvolvidos internamente:
 * **Python 3.12 ou 3.13** *(Atenção: Evite versões mais recentes (3.14+) para garantir a compatibilidade com os pacotes pré-compilados do `gensim` e do `spaCy` e evitar erros de compilação C++).*
 * **spaCy:** Reconhecimento de Entidades Nomeadas (NER) e marcação POS.
-* **Enelvo & pyspellchecker:** Normalização lexical e correção ortográfica adaptada para o "internetês".
+* **pyspellchecker:** Correção ortográfica adaptada para o "internetês".
 * **PortiLexicon-UD:** Validação de termos técnicos a partir de exclusão de léxico geral.
   * **Nota:** O arquivo original `UDlexPT.py` fornecido pelo PortiLexicon sofreu pequenas adaptações neste repositório para garantir compatibilidade e estabilidade em ambientes Windows:
     1. Foi adicionado o parâmetro explícito `encoding='utf-8'` na função `open()` para evitar erros de leitura de caracteres especiais.
@@ -62,6 +62,17 @@ O fluxo de processamento de texto utiliza uma combinação de ferramentas aberta
    python src/filtragem.py
    ```
    *Os resultados da triagem serão salvos em `data/resultados_tweets.csv`.*
+
+## 🤝 Créditos e fontes de dados
+
+Grande parte dos recursos léxicos e bases de dados utilizados na pasta `resources/` provém de contribuições valiosas da comunidade open-source. Deixo aqui os devidos agradecimentos e créditos aos autores originais:
+
+* **Municípios e estados brasileiros (`estados.csv`, `municipios.csv`):** [kelvins/municipios-brasileiros](https://github.com/kelvins/municipios-brasileiros)
+* **Nomes próprios do Censo IBGE (`ibge-fem-10000.csv`, `ibge-mas-10000.csv`):** [MedidaSP/nomes-brasileiros-ibge](https://github.com/MedidaSP/nomes-brasileiros-ibge)
+* **Lista de países (`paises-array.json`):** [juliolvfilho/lista-paises](https://github.com/juliolvfilho/lista-paises)
+* **Léxico de palavrões/termos ofensivos (`pt.txt`):** [LDNOOBW](https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words)
+* **Léxico geral e morfológico:** [PortiLexicon-UD](https://github.com/LuceleneL/PortiLexicon-UD)
+* **Outros recursos:** O repositório também inclui compilações manuais de sobrenomes políticos, dicionários de verbos psicológicos baseados no LIWC e listas de exceções ortográficas.
 
 ## 👩‍💻 Autoria e instituição
 

@@ -19,3 +19,8 @@ out/
 data/Amostras/*.xlsx
 
 resources/PortiLexicon-UD/AUX.tsv
+
+# Arquivos reservados para features futuras
+resources/palavras.txt
+resources/psych_verbs.txt
+resources/pt.txt
