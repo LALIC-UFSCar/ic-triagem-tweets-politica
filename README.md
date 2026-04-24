@@ -1,28 +1,31 @@
 # Triagem inteligente de tweets para o Processamento de Linguagem Natural (PLN)
 
-Este repositório contém o código-fonte e os recursos desenvolvidos durante o projeto de Iniciação Científica focado na criação de um modelo computacional para a triagem qualitativa de tweets, com ênfase no domínio da política brasileira. 
+Este repositório contém o código-fonte e os recursos desenvolvidos durante o projeto de Iniciação Científica focado na criação de um modelo computacional para a triagem qualitativa de publicações textuais de redes sociais (como textos curtos e tweets), com ênfase no domínio da política brasileira. 
 
-O sistema atua como uma etapa de pré-processamento, utilizando a extração de pistas linguísticas para ranquear a utilidade de publicações para tarefas posteriores de PLN, como análise de sentimentos e sumarização.
+O sistema atua como uma etapa de pré-processamento, utilizando a extração de pistas linguísticas para ranquear a utilidade das publicações para tarefas posteriores de PLN, como análise de sentimentos e sumarização.
 
 ## 🎯 Objetivo
-Avaliar e pontuar textos curtos (tweets) baseando-se em aspectos extraídos da dimensão retórica da argumentação:
-- **Credibilidade:** Identificação de autoridades públicas, dados quantitativos e termos técnicos.
-- **Apelo emocional:** Detecção de emojis, caixa alta, hashtags, repetição de pontuação e uso de primeira pessoa.
+Avaliar e pontuar as publicações baseando-se em aspectos extraídos da dimensão retórica da argumentação:
+
+![Taxonomia da qualidade da argumentação](docs/taxonomia.png)
+
+- **Credibilidade:** Identificação de autoridades públicas, dados quantitativos, termos técnicos, relatos pessoais e uso de hashtags.
+- **Apelo emocional:** Detecção de emojis, caixa alta, repetição de pontuação e uso de primeira pessoa.
 - **Clareza:** Penalização por erros de língua portuguesa e avaliação de métricas de legibilidade.
 
 ## 📂 Estrutura do repositório
 
-A arquitetura do projeto foi desenhada para separar claramente códigos de experimentação, dados e recursos linguísticos:
+A arquitetura do projeto foi desenhada para separar claramente códigos, dados e recursos linguísticos:
 
 * `src/`: Scripts Python contendo a lógica de filtragem, extração de amostras e a implementação das heurísticas das pistas linguísticas.
-* `data/`: Amostras de dados e arquivos `.csv` resultantes do ranqueamento. *(Nota: Por questões de privacidade e volume, as bases originais completas do Twitter/X não são versionadas).*
-* `resources/`: Léxicos, dicionários e ferramentas auxiliares adaptadas para o projeto (incluindo `PortiLexicon-UD`, bases do IBGE, listas de exceção ortográfica e léxicos de toxicidade para trabalhos futuros).
+* `data/`: Amostras de dados e arquivos `.csv` resultantes do ranqueamento. *(Nota: Por questões de privacidade e volume, as bases originais completas não são versionadas. Este projeto utilizou os dados do [Interfaces Twitter Elections Dataset (ITED-Br)](https://github.com/Interfaces-UFSCAR/ITED-Br)).*
+* `resources/`: Léxicos, dicionários e ferramentas auxiliares adaptadas para o projeto (incluindo `PortiLexicon-UD`, bases do IBGE e listas de exceção ortográfica).
 * `docs/`: Documentação complementar, infográficos e representações visuais dos critérios adotados.
 
 ## 🛠️ Tecnologias e dependências principais
 
 O fluxo de processamento de texto utiliza uma combinação de ferramentas abertas e algoritmos desenvolvidos internamente:
-* **Python 3.12 ou 3.13** *(Atenção: Evite versões mais recentes (3.14+) para garantir a compatibilidade com os pacotes pré-compilados do `gensim` e do `spaCy` e evitar erros de compilação C++).*
+* **Python 3.12 ou 3.13** *(Atenção: Evite versões mais recentes para garantir a compatibilidade das dependências instaladas).*
 * **spaCy:** Reconhecimento de Entidades Nomeadas (NER) e marcação POS.
 * **pyspellchecker:** Correção ortográfica adaptada para o "internetês".
 * **PortiLexicon-UD:** Validação de termos técnicos a partir de exclusão de léxico geral.
@@ -30,7 +33,7 @@ O fluxo de processamento de texto utiliza uma combinação de ferramentas aberta
     1. Foi adicionado o parâmetro explícito `encoding='utf-8'` na função `open()` para evitar erros de leitura de caracteres especiais.
     2. Implementou-se a normalização `unicodedata.normalize('NFC', key)` nas chaves do dicionário para garantir o matching exato com as strings extraídas dos tweets.
     3. O método de separação de quebra de linhas foi substituído por `.rstrip('\n')` e `.split(",", 1)` para lidar com os padrões CRLF e evitar perdas de caracteres na leitura do `.tsv`.
-* **NILC-Metrix:** Extração de métricas de complexidade textual (requer instanciamento via Docker para uso local). *Caso o contêiner não esteja rodando na porta 8080, o algoritmo ignora as métricas graciosamente sem interromper a execução.*
+* **NILC-Metrix:** Extração de métricas de complexidade textual (requer instanciamento via Docker para uso local). *Caso o contêiner não esteja rodando na porta 8080, o algoritmo ignora as métricas sem interromper a execução da triagem.*
 
 ## 🚀 Como executar
 
@@ -63,16 +66,15 @@ O fluxo de processamento de texto utiliza uma combinação de ferramentas aberta
    ```
    *Os resultados da triagem serão salvos em `data/resultados_tweets.csv`.*
 
-## 🤝 Créditos e Fontes de Dados
+## 🤝 Créditos e fontes de dados
 
 Grande parte dos recursos léxicos e bases de dados utilizados na pasta `resources/` provém de contribuições valiosas da comunidade open-source. Deixo aqui os devidos agradecimentos e créditos aos autores originais:
 
 * **Municípios e estados brasileiros (`estados.csv`, `municipios.csv`):** [kelvins/municipios-brasileiros](https://github.com/kelvins/municipios-brasileiros)
 * **Nomes próprios do Censo IBGE (`ibge-fem-10000.csv`, `ibge-mas-10000.csv`):** [MedidaSP/nomes-brasileiros-ibge](https://github.com/MedidaSP/nomes-brasileiros-ibge)
 * **Lista de países (`paises-array.json`):** [juliolvfilho/lista-paises](https://github.com/juliolvfilho/lista-paises)
-* **Léxicos de palavrões e termos ofensivos (`pt.txt`, `palavras.txt`):** [LDNOOBW](https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words) e [chat-detox](https://github.com/dunossauro/chat-detox)
 * **Léxico geral e morfológico:** [PortiLexicon-UD](https://github.com/LuceleneL/PortiLexicon-UD)
-* **Outros recursos:** O repositório também inclui compilações manuais de sobrenomes políticos e dicionários de verbos psicológicos baseados no LIWC.
+* **Outros recursos:** O repositório também inclui compilações manuais de sobrenomes políticos e listas de exceções ortográficas.
 
 ## 👩‍💻 Autoria e instituição
 
