@@ -20,7 +20,9 @@ data/Amostras/*.xlsx
 
 resources/PortiLexicon-UD/AUX.tsv
 
-# Arquivos reservados para features futuras
+# Recursos reservados para features futuras
+resources/CSTTool
+resources/toxic_bert_model
 resources/palavras.txt
 resources/psych_verbs.txt
 resources/pt.txt
