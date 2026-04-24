@@ -7,8 +7,6 @@ O sistema atua como uma etapa de pré-processamento, utilizando a extração de 
 ## 🎯 Objetivo
 Avaliar e pontuar as publicações baseando-se em aspectos extraídos da dimensão retórica da argumentação:
 
-![Taxonomia da qualidade da argumentação](docs/taxonomia.png)
-
 - **Credibilidade:** Identificação de autoridades públicas, dados quantitativos, termos técnicos, relatos pessoais e uso de hashtags.
 - **Apelo emocional:** Detecção de emojis, caixa alta, repetição de pontuação e uso de primeira pessoa.
 - **Clareza:** Penalização por erros de língua portuguesa e avaliação de métricas de legibilidade.
@@ -75,6 +73,10 @@ Grande parte dos recursos léxicos e bases de dados utilizados na pasta `resourc
 * **Lista de países (`paises-array.json`):** [juliolvfilho/lista-paises](https://github.com/juliolvfilho/lista-paises)
 * **Léxico geral e morfológico:** [PortiLexicon-UD](https://github.com/LuceleneL/PortiLexicon-UD)
 * **Outros recursos:** O repositório também inclui compilações manuais de sobrenomes políticos e listas de exceções ortográficas.
+
+## 🙏 Agradecimentos
+
+Este trabalho foi realizado com o apoio do Programa Institucional de Bolsas de Iniciação Científica (PIBIC) e financiado pelo Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) durante o período de 2024 a 2025.
 
 ## 👩‍💻 Autoria e instituição
 
