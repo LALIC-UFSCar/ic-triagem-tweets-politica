@@ -74,6 +74,13 @@ Grande parte dos recursos léxicos e bases de dados utilizados na pasta `resourc
 * **Léxico geral e morfológico:** [PortiLexicon-UD](https://github.com/LuceleneL/PortiLexicon-UD)
 * **Outros recursos:** O repositório também inclui compilações manuais de sobrenomes políticos e listas de exceções ortográficas.
 
+## 📚 Publicações relacionadas
+
+Os resultados e metodologias desenvolvidos neste projeto foram documentados e publicados nos seguintes veículos acadêmicos:
+
+* **Congresso de Iniciação Científica e Tecnológica (CIC) UFSCar 2025:** Resumo publicado nos anais do congresso (pág. 519). [Acessar Anais](https://www.propq.ufscar.br/pt-br/assets/arquivos/iniciacao-cientifica/congressos/anais_cic_25-1.pdf)
+* **UNIGOU Proceedings:** Artigo técnico detalhando a abordagem do projeto. [Acessar Publicação](https://www.incbac.org/unigou-proceedings/?article_id=809#extract-809)
+
 ## 🙏 Agradecimentos
 
 Este trabalho foi realizado com o apoio do Programa Institucional de Bolsas de Iniciação Científica (PIBIC) e financiado pelo Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) durante o período de 2024 a 2025.
